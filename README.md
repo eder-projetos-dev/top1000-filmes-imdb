@@ -14,6 +14,8 @@
 
 ## Descrição do Projeto
 
+![prototipo_tela1](https://user-images.githubusercontent.com/117411812/210028314-f87348b7-65ba-4aa1-ae25-9d8221b00c8c.png)
+
 Descubra quais atores e diretores estão entre os 1000 filmes melhor avaliados pelo IMDB.<br>
 
 ## Funcionalidades

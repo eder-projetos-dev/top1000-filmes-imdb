@@ -16,9 +16,9 @@ Status: **Projeto em desenvolvimento**
 
 ## Descrição do Projeto
 
-![prototipo_tela1](https://user-images.githubusercontent.com/117411812/210028314-f87348b7-65ba-4aa1-ae25-9d8221b00c8c.png)
+Descubra quais atores e diretores estão entre os 1000 filmes melhores avaliados pelo IMDB.<br>
 
-Descubra quais atores e diretores estão entre os 1000 filmes melhor avaliados pelo IMDB.<br>
+![tela_principal](https://user-images.githubusercontent.com/117411812/210185782-9bb89d84-d7c6-444e-ac79-664e61ba9945.png)
 
 ## Funcionalidades
 - `Funcionalidade 1`: Mostrar filmes por diretor.

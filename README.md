@@ -3,6 +3,8 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
+Status: **Projeto em desenvolvimento**
+
 ## Tópicos 
 
 :small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)<br>

@@ -2,6 +2,10 @@ from imdb import artistas
 from imdb import diretores
 from imdb import artistas_por_letra
 from imdb import diretores_por_letra
+
+from imdb import filmes_por_artista
+from imdb import filmes_por_diretor
+
 from imdb import buscar_por_artista
 from imdb import buscar_por_diretor
 
@@ -13,7 +17,32 @@ from imdb import buscar_por_diretor
 #buscar_por_diretor("Anthony Russo")
 #buscar_por_diretor("Oliver Stone")
 
-buscar_por_diretor("Stanley Kubrick")
+#buscar_por_diretor("Stanley Kubrick")
+
+
+contagem, filmes = filmes_por_artista("Scarlett Johansson")
+
+print("\n---- filmes por artista ----")
+
+for filme in filmes:
+    print(filme)
+
+print(contagem)
+
+
+
+
+"""
+contagem, filmes = filmes_por_diretor("Stanley Kubrick")
+
+print("\n---- filmes por diretor ----")
+
+for filme in filmes:
+    print(filme)
+
+print(contagem)
+
+"""
 
 """
 # Testando - artistas

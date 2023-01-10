@@ -58,9 +58,8 @@ def artistas_por_letra(letra):
             lista_artistas.append(coluna[12])
         if coluna[13][0] == letra:
             lista_artistas.append(coluna[13])
-        artistas = set(lista_artistas)
-        artistas = sorted(artistas)
-    return len(artistas), artistas
+        artistas = set(lista_artistas)        
+    return len(artistas), sorted(artistas)
 
 
 """ Busca por diretores
@@ -103,6 +102,26 @@ def diretores_por_letra(letra):
     for coluna in filmes:
         if coluna[9][0] == letra: 
             lista_diretores.append(coluna[9])
-            diretores = set(lista_diretores)
-            diretores = sorted(diretores)            
-    return len(diretores), diretores
+            diretores = set(lista_diretores)            
+    return len(diretores), sorted(diretores)
+
+
+""" Retorna a contagem e a lista de filmes estrelados por determinado artista """
+
+def filmes_por_artista(artista):
+    lista_de_filmes = []
+    for coluna in filmes:
+        if (coluna[10] == artista or coluna[11] == artista or
+            coluna[12] == artista or coluna[13] == artista):
+            lista_de_filmes.append(coluna[1])
+    return len(lista_de_filmes), sorted(lista_de_filmes)
+
+
+""" Retorna a contagem e a lista de filmes dirigidos por determinado diretor """
+
+def filmes_por_diretor(diretor):
+    lista_de_filmes = []
+    for coluna in filmes:
+        if (coluna[9] == diretor):
+            lista_de_filmes.append(coluna[1])            
+    return len(lista_de_filmes), sorted(lista_de_filmes)

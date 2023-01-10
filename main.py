@@ -1,4 +1,8 @@
 import PySimpleGUI as psg
+from imdb import artistas_por_letra
+from imdb import diretores_por_letra
+from imdb import filmes_por_artista
+from imdb import filmes_por_diretor
 
 alfabeto = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z".split(',')
 
@@ -22,18 +26,24 @@ while True:
     if evento == psg.WIN_CLOSED or evento == "Cancelar":
         break
     
-    if len(valores['alfa_ator']) == 1:        
-        janela["atores"].update(values=[f"A letra é {valores['alfa_ator']}"])
-        
-    if len(valores['alfa_diretor']) == 1:        
-        janela["diretores"].update(values=[f"A letra é {valores['alfa_diretor']}"])
+    if len(valores['alfa_ator']) == 1:
+        letra = valores['alfa_ator']
+        count_atores, atores = artistas_por_letra(letra)
+        janela["atores"].update(values=atores)
+                 
+    if len(valores['alfa_diretor']) == 1:
+        letra = valores['alfa_diretor']
+        count_diretores, diretores = diretores_por_letra(letra)
+        janela["diretores"].update(values=diretores)
 
     if evento == 'atores':
-        selection = valores[evento]        
-        janela["filmes"].update(values=selection)
+        selection = valores[evento]
+        contagem, filmes_artista = filmes_por_artista(''.join(selection)) 
+        janela["filmes"].update(values=filmes_artista)
 
     if evento == 'diretores':
-        selection = valores[evento]        
-        janela["filmes"].update(values=selection)
+        selection = valores[evento]
+        contagem, filmes_diretor = filmes_por_diretor(''.join(selection))
+        janela["filmes"].update(values=filmes_diretor)        
 
 janela.close()

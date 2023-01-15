@@ -3,6 +3,7 @@ from imdb import artistas_por_letra
 from imdb import diretores_por_letra
 from imdb import filmes_por_artista
 from imdb import filmes_por_diretor
+from imdb import dados_do_filme
 
 def criar_janela1():
 
@@ -20,15 +21,15 @@ def criar_janela1():
         [psg.Text('FILMES', size=(50, 0), font='Lucida', justification='center')],
         [psg.Listbox(values=[], select_mode='single', key='filmes', size=(64, 6), enable_events=True)]]
     
-    return psg.Window('IMDB TOP 1000 FILMES', layout, finalize=True)
+    return psg.Window('IMDB TOP 1000 FILMES', layout, size=(499, 400), finalize=True)
 
 
 def criar_janela2():
     psg.theme('DarkGray13')
     layout = [[psg.Text('NOME DO FILME', key='nome_do_filme', size=(24, 0), font='Lucida', justification='center')],
-              [psg.Output(size=(260, 10), key='dados_do_filme')],
-              [psg.Button('VOLTAR')]]
-    return psg.Window('IMDB TOP 1000 FILMES', layout, size=(300, 300), element_justification='c', finalize=True)
+              [psg.Output(size=(260, 17), key='dados_do_filme')],              
+              [psg.Button('VOLTAR')]]    
+    return psg.Window('IMDB TOP 1000 FILMES', layout, size=(499, 400), element_justification='c', finalize=True)
 
 
 def main():
@@ -54,7 +55,7 @@ def main():
                 count_atores, atores = artistas_por_letra(letra)
                 janela["atores"].update(values=atores)
                 
-        if evento == 'alfa_diretor':             
+        if evento == 'alfa_diretor':
             if len(valores['alfa_diretor']) == 1:
                 letra = valores['alfa_diretor']
                 count_diretores, diretores = diretores_por_letra(letra)
@@ -62,7 +63,7 @@ def main():
 
         if evento == 'atores':
             selecionado = valores[evento]
-            contagem, filmes_artista = filmes_por_artista(''.join(selecionado)) 
+            contagem, filmes_artista = filmes_por_artista(''.join(selecionado))
             janela["filmes"].update(values=filmes_artista)
 
         if evento == 'diretores':
@@ -73,10 +74,11 @@ def main():
         if evento == 'filmes':
             selecionado = valores[evento]
             janela1.hide()
-            janela2.un_hide()            
+            janela2.un_hide()
+            filme_info = dados_do_filme(''.join(selecionado))
             janela2["nome_do_filme"].update(''.join(selecionado))
-            janela2["dados_do_filme"].update(''.join(selecionado))            
-            
+            janela2["dados_do_filme"].update(''.join(filme_info))            
+           
         if janela == janela2 and evento == 'VOLTAR':
             janela2.hide()
             janela1.un_hide()

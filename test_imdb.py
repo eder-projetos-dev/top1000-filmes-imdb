@@ -9,6 +9,8 @@ from imdb import filmes_por_diretor
 from imdb import buscar_por_artista
 from imdb import buscar_por_diretor
 
+from imdb import informacoes_do_filme
+
 #buscar_por_artista("Julia Roberts")
 #buscar_por_artista("Scarlett Johansson")
 
@@ -19,7 +21,12 @@ from imdb import buscar_por_diretor
 
 #buscar_por_diretor("Stanley Kubrick")
 
+poster_link, filme_info = informacoes_do_filme("Captain America: The Winter Soldier")
 
+print(poster_link)
+
+
+"""
 contagem, filmes = filmes_por_artista("Scarlett Johansson")
 
 print("\n---- filmes por artista ----")
@@ -29,7 +36,7 @@ for filme in filmes:
 
 print(contagem)
 
-
+"""
 
 
 """

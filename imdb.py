@@ -125,3 +125,24 @@ def filmes_por_diretor(diretor):
         if (coluna[9] == diretor):
             lista_de_filmes.append(coluna[1])            
     return len(lista_de_filmes), sorted(lista_de_filmes)
+
+
+""" Retorna informações sobre um filme """
+
+def dados_do_filme(filme):
+    filme_info = []
+    for coluna in filmes:
+        if coluna[1] == filme:            
+            filme_info.append(f"Released year: {coluna[2]}\n")
+            filme_info.append(f"Runtime: {coluna[4]}\n")
+            filme_info.append(f"Genre: {coluna[5]}\n")
+            filme_info.append(f"IMDB rating: {coluna[6]}\n")
+            filme_info.append(f"Director: {coluna[9]}\n")
+            filme_info.append(f"Star1: {coluna[10]}\n")
+            filme_info.append(f"Star2: {coluna[11]}\n")
+            filme_info.append(f"Star3: {coluna[12]}\n")
+            filme_info.append(f"Star4: {coluna[13]}\n")
+            filme_info.append(f"Votes: {coluna[14]}\n\n")
+            filme_info.append(f"Overview: {coluna[7]}\n")
+    return filme_info
+    

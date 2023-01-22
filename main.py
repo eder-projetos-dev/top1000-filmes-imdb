@@ -32,14 +32,24 @@ def criar_janela2():
     return psg.Window('IMDB TOP 1000 FILMES', layout, size=(499, 400), element_justification='c', finalize=True)
 
 
+def move_center(window):
+    screen_width, screen_height = window.get_screen_dimensions()
+    win_width, win_height = window.size
+    x, y = (screen_width - win_width)//2, (screen_height - win_height)//2
+    window.move(x, y)
+
+
 def main():
 
     janela1, janela2 = criar_janela1(), criar_janela2()
     janela2.hide()
-    
+   
     while True:
 
         janela, evento, valores = psg.read_all_windows()
+
+        move_center(janela1)
+        move_center(janela2)
         
         if evento == psg.WIN_CLOSED or evento == 'Finalizar':
             janela.close()

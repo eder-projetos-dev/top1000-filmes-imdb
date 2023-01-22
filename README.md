@@ -18,13 +18,14 @@ Status: **Projeto em desenvolvimento**
 
 Descubra quais atores e diretores estão entre os 1000 filmes melhores avaliados pelo IMDB.<br>
 
-![tela_principal](https://user-images.githubusercontent.com/117411812/210185782-9bb89d84-d7c6-444e-ac79-664e61ba9945.png)
+![demonstracao](https://user-images.githubusercontent.com/117411812/213947337-b992d265-2646-489a-a602-057321c49e9c.gif)
 
 ## Funcionalidades
-- `Funcionalidade 1`: Mostrar filmes por diretor.
-- `Funcionalidade 2`: Mostrar filmes por ator.
+- `Funcionalidade 1`: Mostrar filmes por diretor selecionado.
+- `Funcionalidade 2`: Mostrar filmes por ator selecionado.
 - `Funcionalidade 3`: Mostrar todos os diretores cujo nome começam com a letra informada.
 - `Funcionalidade 4`: Mostrar todos os atores cujo nome começam com a letra informada.
+- `Funcionalidade 5`: Mostrar informações sobre o filme selecionado em uma nova janela.
 
 ## Acesso ao projeto
 

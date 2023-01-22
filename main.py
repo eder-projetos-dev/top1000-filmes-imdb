@@ -19,7 +19,9 @@ def criar_janela1():
         [psg.Listbox(values=[], select_mode='single', key='atores', size=(30, 6), enable_events=True),
          psg.Listbox(values=[], select_mode='single', key='diretores', size=(30, 6), enable_events=True)],
         [psg.Text('FILMES', size=(50, 0), font='Lucida', justification='center')],
-        [psg.Listbox(values=[], select_mode='single', key='filmes', size=(64, 6), enable_events=True)]]
+        [psg.Listbox(values=[], select_mode='single', key='filmes', size=(64, 6), enable_events=True)],
+        [psg.Text('SELECIONADO', size=(50, 0), font='Lucida', justification='center')],
+        [psg.Text('', size=(50, 0), font='Lucida', key='selec', justification='center')]]
     
     return psg.Window('IMDB TOP 1000 FILMES', layout, size=(499, 400), finalize=True)
 
@@ -75,11 +77,13 @@ def main():
             selecionado = valores[evento]
             contagem, filmes_artista = filmes_por_artista(''.join(selecionado))
             janela["filmes"].update(values=filmes_artista)
+            janela1["selec"].update(f"Artista: {''.join(selecionado)}")
 
         if evento == 'diretores':
             selecionado = valores[evento]
             contagem, filmes_diretor = filmes_por_diretor(''.join(selecionado))
             janela["filmes"].update(values=filmes_diretor)
+            janela1["selec"].update(f"Diretor: {''.join(selecionado)}")
 
         if evento == 'filmes':
             selecionado = valores[evento]

@@ -6,11 +6,8 @@ from imdb import filmes_por_diretor
 from imdb import dados_do_filme
 
 def criar_janela1():
-
     alfabeto = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z".split(',')
-
     psg.theme('DarkGray13')
-
     layout = [
         [psg.Text('ATORES (A-Z)', size=(24, 0), font='Lucida', justification='center'),
          psg.Text('DIRETORES (A-Z)', size=(24, 0), font='Lucida', justification='center')],
@@ -21,10 +18,8 @@ def criar_janela1():
         [psg.Text('FILMES', size=(50, 0), font='Lucida', justification='center')],
         [psg.Listbox(values=[], select_mode='single', key='filmes', size=(64, 6), enable_events=True)],
         [psg.Text('SELECIONADO', size=(50, 0), font='Lucida', justification='center')],
-        [psg.Text('', size=(50, 0), font='Lucida', key='selec', justification='center')]]
-    
+        [psg.Text('', size=(50, 0), font='Lucida', key='selec', justification='center')]]    
     return psg.Window('IMDB TOP 1000 FILMES', layout, size=(499, 400), finalize=True)
-
 
 def criar_janela2():
     psg.theme('DarkGray13')
@@ -33,26 +28,15 @@ def criar_janela2():
               [psg.Button('VOLTAR')]]    
     return psg.Window('IMDB TOP 1000 FILMES', layout, size=(499, 400), element_justification='c', finalize=True)
 
-
-def move_center(window):
-    screen_width, screen_height = window.get_screen_dimensions()
-    win_width, win_height = window.size
-    x, y = (screen_width - win_width)//2, (screen_height - win_height)//2
-    window.move(x, y)
-
-
 def main():
-
     janela1, janela2 = criar_janela1(), criar_janela2()
+    janela1.move_to_center()
     janela2.hide()
-   
+    
     while True:
-
-        janela, evento, valores = psg.read_all_windows()
-
-        move_center(janela1)
-        move_center(janela2)
         
+        janela, evento, valores = psg.read_all_windows()
+       
         if evento == psg.WIN_CLOSED or evento == 'Finalizar':
             janela.close()
             if janela == janela2:
@@ -89,6 +73,7 @@ def main():
             selecionado = valores[evento]
             janela1.hide()
             janela2.un_hide()
+            janela2.move_to_center()
             filme_info = dados_do_filme(''.join(selecionado))
             janela2["nome_do_filme"].update(''.join(selecionado))
             janela2["dados_do_filme"].update(''.join(filme_info))            
@@ -96,6 +81,7 @@ def main():
         if janela == janela2 and evento == 'VOLTAR':
             janela2.hide()
             janela1.un_hide()
+            janela1.move_to_center()
 
 if __name__ == '__main__':
     main()
